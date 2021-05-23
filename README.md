@@ -1,7 +1,7 @@
 # Ionic app to demonstrate automated tests #
 
 This repository contains an Ionic app which uses Angular and Capacitor. 
-The app allows to query for IATA codes, namely [airport codes](https://en.wikipedia.org/wiki/IATA_airport_code)
+The app allows to query for IATA codes (International Air Transport Association), namely [airport codes](https://en.wikipedia.org/wiki/IATA_airport_code)
 and [airline codes](https://en.wikipedia.org/wiki/Airline_codes).
 
 <br>
