@@ -6,6 +6,10 @@ and [airline codes](https://en.wikipedia.org/wiki/Airline_codes).
 
 <br>
 
+The author of this app is not related to the IATA in any way.
+
+<br>
+
 ----
 
 ## License ##
