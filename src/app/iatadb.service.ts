@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Flughafenergebnis } from './flughafenergebnis';
+import { Fluggesellschaftergebnis } from './fluggesellschaftergebnis';
 
 
 /**
@@ -34,7 +35,7 @@ export class IatadbService {
       case "LHR": return new Flughafenergebnis(true, "London Heathrow"      , "GB"         ); 
       case "PEK": return new Flughafenergebnis(true, "Peking"               , "VR China"   ); 
       case "STR": return new Flughafenergebnis(true, "Stuttgart"            , "Deutschland"); 
-      
+
       default: return new Flughafenergebnis(false, "", "");        
     }    
   }
@@ -47,7 +48,16 @@ export class IatadbService {
    * @return  Ergebnisobjekt mit Attribut `gefunden=true` genau dann wenn eine Airline mit `code`
    *          gefunden wurde.
    */
-  public sucheFluggesellschaft(code: string) {
+  public sucheFluggesellschaft(code: string): Fluggesellschaftergebnis {
 
+    switch ( code.toUpperCase() ) {
+
+      case "AA": return  new Fluggesellschaftergebnis(true, "American Airlines", "USA"        );
+      case "BA": return  new Fluggesellschaftergebnis(true, "British Airways"  , "GB"         );
+      case "LH": return  new Fluggesellschaftergebnis(true, "Lufthansa"        , "Deutschland");
+      case "LO": return  new Fluggesellschaftergebnis(true, "LOT"              , "Polen"      );
+
+      default: return new Fluggesellschaftergebnis(false, "", "");
+    }
   }
 }

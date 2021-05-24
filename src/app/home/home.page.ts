@@ -43,7 +43,7 @@ export class HomePage {
 
     if (ergebnis.gefunden) {
 
-      this.zeigeDialog("Ergebnis", `Flughafen ${ergebnis.flughafen} in ${ergebnis.land}.`);
+      this.zeigeDialog("Flughafen gefunden", `Flughafen ${ergebnis.flughafen} in ${ergebnis.land}.`);
 
     } else {
 
@@ -57,14 +57,30 @@ export class HomePage {
   public onFluggesellschaftSuchen() {
 
     const iataCodeTrimmed = this.iataCode.trim();
+
+    const laengeEingabe = iataCodeTrimmed.length
+
     if (iataCodeTrimmed.length === 0) {
 
       this.zeigeDialog("Ungültige Eingabe", "Kein Code ist eingegeben.");
       return;
     }
+    if (laengeEingabe !== 2) {
 
-    this.iataDb.sucheFluggesellschaft(iataCodeTrimmed);
-    this.zeigeDialog("Info", "Not implemented yet :-(");
+      this.zeigeDialog("Ungültige Eingabe", `Eingegebener Code "${iataCodeTrimmed}" hat nicht genau zwei Zeichen.`);
+      return;
+    }    
+
+    const ergebnis = this.iataDb.sucheFluggesellschaft(iataCodeTrimmed);
+
+    if (ergebnis.gefunden) {
+
+      this.zeigeDialog("Fluggesellschaft gefunden", `Fluggesellschaft ${ergebnis.fluggesellschaft} (${ergebnis.land}).`);
+
+    } else {
+
+      this.zeigeDialog("Ergebnis", `Keine Fluggesellschaft mit Code "${iataCodeTrimmed}" gefunden.`);
+    }
   }
 
   /**
