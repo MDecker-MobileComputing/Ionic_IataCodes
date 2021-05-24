@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { IatadbService } from '../iatadb.service';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -24,14 +25,30 @@ export class HomePage {
   public onFlughafenSuchen() {
 
     const iataCodeTrimmed = this.iataCode.trim();
-    if (iataCodeTrimmed.length === 0) {
 
-      this.zeigeDialog("Fehler", "Kein Code ist eingegeben.");
+    const laengeEingabe = iataCodeTrimmed.length
+
+    if (laengeEingabe === 0) {
+
+      this.zeigeDialog("Ungültige Eingabe", "Kein Code ist eingegeben.");
+      return;
+    }
+    if (laengeEingabe !== 3) {
+
+      this.zeigeDialog("Ungültige Eingabe", `Eingegebener Code "${iataCodeTrimmed}" hat nicht genau drei Zeichen.`);
       return;
     }
 
-    this.iataDb.sucheFlughafen(iataCodeTrimmed);
-    this.zeigeDialog("Info", "Not implemented yet :-(");
+    const ergebnis = this.iataDb.sucheFlughafen(iataCodeTrimmed);
+
+    if (ergebnis.gefunden) {
+
+      this.zeigeDialog("Ergebnis", `Flughafen ${ergebnis.flughafen} in ${ergebnis.land}.`);
+
+    } else {
+
+      this.zeigeDialog("Ergebnis", `Kein Flughafen mit Code "${iataCodeTrimmed}" gefunden.`);
+    }
   }
 
   /**
@@ -42,7 +59,7 @@ export class HomePage {
     const iataCodeTrimmed = this.iataCode.trim();
     if (iataCodeTrimmed.length === 0) {
 
-      this.zeigeDialog("Fehler", "Kein Code ist eingegeben.");
+      this.zeigeDialog("Ungültige Eingabe", "Kein Code ist eingegeben.");
       return;
     }
 
