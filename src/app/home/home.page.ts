@@ -40,7 +40,6 @@ export class HomePage {
     }
 
     const ergebnis = this.iataDb.sucheFlughafen(iataCodeTrimmed);
-
     if (ergebnis.gefunden) {
 
       this.zeigeDialog("Flughafen gefunden", `Flughafen ${ergebnis.flughafen} in ${ergebnis.land}.`);
@@ -73,7 +72,6 @@ export class HomePage {
     }    
 
     const ergebnis = this.iataDb.sucheFluggesellschaft(iataCodeTrimmed);
-
     if (ergebnis.gefunden) {
 
       this.zeigeDialog("Fluggesellschaft gefunden", `Fluggesellschaft ${ergebnis.fluggesellschaft} (${ergebnis.land}).`);
