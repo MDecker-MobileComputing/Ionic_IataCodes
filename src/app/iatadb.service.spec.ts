@@ -14,16 +14,6 @@ describe('IatadbService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('Flughafen "xxx" nicht gefunden', () => {
-
-    const flughafenErgebnis = service.sucheFlughafen("xxx");
-
-    expect(flughafenErgebnis.gefunden).toBeFalse()
-
-    expect(flughafenErgebnis.flughafen).toEqual("");
-    expect(flughafenErgebnis.land     ).toEqual("");
-  });
-
   it('Flughafen "FRA" gefunden', () => {
 
     const flughafenErgebnis = service.sucheFlughafen("FRA");
@@ -34,15 +24,37 @@ describe('IatadbService', () => {
     expect(flughafenErgebnis.land     ).toEqual("Deutschland");
   });
 
-  it('Flughafen "fra" gefunden', () => {
+  it('Flughafen "fRa" gefunden', () => {
 
-    const flughafenErgebnis = service.sucheFlughafen("fra");
+    const flughafenErgebnis = service.sucheFlughafen("fRa");
 
     expect(flughafenErgebnis.gefunden).toBeTrue();
 
     expect(flughafenErgebnis.flughafen).toEqual("Frankfurt a.M.");
     expect(flughafenErgebnis.land     ).toEqual("Deutschland");
   });
+
+  it('Flughafen "xxx" nicht gefunden', () => {
+
+    const flughafenErgebnis = service.sucheFlughafen("xxx");
+
+    expect(flughafenErgebnis.gefunden).toBeFalse()
+
+    expect(flughafenErgebnis.flughafen).toEqual("");
+    expect(flughafenErgebnis.land     ).toEqual("");
+  });
+
+
+  it('Flughafen " fra  " gefunden (Leerzeichen ignoriert)', () => {
+
+    const flughafenErgebnis = service.sucheFlughafen("  fra ");
+
+    expect(flughafenErgebnis.gefunden).toBeTrue();
+
+    expect(flughafenErgebnis.flughafen).toEqual("Frankfurt a.M.");
+    expect(flughafenErgebnis.land     ).toEqual("Deutschland");
+  });
+
 
   it('Kein Flughafen für zu kurzen Code "ab" gefunden', () => {
 
@@ -64,9 +76,19 @@ describe('IatadbService', () => {
     expect(flughafenErgebnis.land     ).toEqual("");
   });
 
-  it('Kein Flughafen für leeren String gefunden', () => {
+  it('Kein Flughafen für leeren String "" gefunden', () => {
 
     const flughafenErgebnis = service.sucheFlughafen("");
+
+    expect(flughafenErgebnis.gefunden).toBeFalse()
+
+    expect(flughafenErgebnis.flughafen).toEqual("");
+    expect(flughafenErgebnis.land     ).toEqual("");
+  });
+
+  it('Kein Flughafen für Leerzeichen-String "  " gefunden', () => {
+
+    const flughafenErgebnis = service.sucheFlughafen("  ");
 
     expect(flughafenErgebnis.gefunden).toBeFalse()
 

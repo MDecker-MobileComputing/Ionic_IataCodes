@@ -28,7 +28,7 @@ export class IatadbService {
    */
   public sucheFlughafen(code: string): Flughafenergebnis {
 
-    switch ( code.toUpperCase() ) {
+    switch ( code.trim().toUpperCase() ) {
 
       case "FKB": return new Flughafenergebnis(true, "Karlsruhe/Baden-Baden", "Deutschland");
       case "FRA": return new Flughafenergebnis(true, "Frankfurt a.M."       , "Deutschland");  
@@ -50,7 +50,7 @@ export class IatadbService {
    */
   public sucheFluggesellschaft(code: string): Fluggesellschaftergebnis {
 
-    switch ( code.toUpperCase() ) {
+    switch ( code.trim().toUpperCase() ) {
 
       case "AA": return new Fluggesellschaftergebnis(true, "American Airlines", "USA"        );
       case "BA": return new Fluggesellschaftergebnis(true, "British Airways"  , "GB"         );
