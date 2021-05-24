@@ -25,8 +25,7 @@ export class HomePage {
   public onFlughafenSuchen() {
 
     const iataCodeTrimmed = this.iataCode.trim();
-
-    const laengeEingabe = iataCodeTrimmed.length
+    const laengeEingabe   = iataCodeTrimmed.length;
 
     if (laengeEingabe === 0) {
 
@@ -57,8 +56,7 @@ export class HomePage {
   public onFluggesellschaftSuchen() {
 
     const iataCodeTrimmed = this.iataCode.trim();
-
-    const laengeEingabe = iataCodeTrimmed.length
+    const laengeEingabe   = iataCodeTrimmed.length
 
     if (iataCodeTrimmed.length === 0) {
 
