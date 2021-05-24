@@ -4,8 +4,8 @@ import { Fluggesellschaftergebnis } from './fluggesellschaftergebnis';
 
 
 /**
- * Dieser Service kapselt die Logik für die eigentliche Abfrage
- * der IATA-Codes für Flughäfen und Fluggesellschaften.
+ * Dieser Service kapselt die Logik für die eigentliche Abfrage der IATA-Codes für Flughäfen und Fluggesellschaften. 
+ * Es sind einige wenige Flughafen- und Fluggesellschaften hardcodiert.
  * 
  * Siehe auch die folgende URL für offizielle DB der IATA: https://www.iata.org/publications/Pages/code-search.aspx
  */
@@ -52,12 +52,13 @@ export class IatadbService {
 
     switch ( code.toUpperCase() ) {
 
-      case "AA": return  new Fluggesellschaftergebnis(true, "American Airlines", "USA"        );
-      case "BA": return  new Fluggesellschaftergebnis(true, "British Airways"  , "GB"         );
-      case "LH": return  new Fluggesellschaftergebnis(true, "Lufthansa"        , "Deutschland");
-      case "LO": return  new Fluggesellschaftergebnis(true, "LOT"              , "Polen"      );
+      case "AA": return new Fluggesellschaftergebnis(true, "American Airlines", "USA"        );
+      case "BA": return new Fluggesellschaftergebnis(true, "British Airways"  , "GB"         );
+      case "LH": return new Fluggesellschaftergebnis(true, "Lufthansa"        , "Deutschland");
+      case "LO": return new Fluggesellschaftergebnis(true, "LOT"              , "Polen"      );
 
       default: return new Fluggesellschaftergebnis(false, "", "");
     }
   }
+
 }

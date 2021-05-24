@@ -30,7 +30,7 @@ export class HomePage {
 
     if (laengeEingabe === 0) {
 
-      this.zeigeDialog("Ungültige Eingabe", "Kein Code ist eingegeben.");
+      this.zeigeDialog("Ungültige Eingabe", "Kein Code eingegeben.");
       return;
     }
     if (laengeEingabe !== 3) {
@@ -63,7 +63,7 @@ export class HomePage {
 
     if (iataCodeTrimmed.length === 0) {
 
-      this.zeigeDialog("Ungültige Eingabe", "Kein Code ist eingegeben.");
+      this.zeigeDialog("Ungültige Eingabe", "Kein Code eingegeben.");
       return;
     }
     if (laengeEingabe !== 2) {
