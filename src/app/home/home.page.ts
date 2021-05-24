@@ -10,7 +10,7 @@ import { IatadbService } from '../iatadb.service';
 })
 export class HomePage {
 
-  /** Variable ist an UI-Element für Eingabe Code gebunden (Two-way Binding). */
+  /** Variable ist an UI-Element für Eingabe Flughafen/Airline-Code gebunden (Two-way Binding). */
   public iataCode: string = "";
 
   /**
@@ -44,6 +44,7 @@ export class HomePage {
     if (ergebnis.gefunden) {
 
       this.zeigeDialog("Flughafen gefunden", `Flughafen ${ergebnis.flughafen} in ${ergebnis.land}.`);
+      this.iataCode = "";
 
     } else {
 
@@ -76,6 +77,7 @@ export class HomePage {
     if (ergebnis.gefunden) {
 
       this.zeigeDialog("Fluggesellschaft gefunden", `Fluggesellschaft ${ergebnis.fluggesellschaft} (${ergebnis.land}).`);
+      this.iataCode = "";
 
     } else {
 
