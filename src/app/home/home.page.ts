@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { IatadbService } from '../iatadb.service';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +9,28 @@ import { AlertController } from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor(private alertCtrl: AlertController) {}
+  /** Variable ist an UI-Element für Eingabe Code gebunden (Two-way Binding). */
+  public iataCode: string = "";
+
+  /**
+   * Konstruktor für Dependency Injection.
+   */
+  constructor(private alertCtrl: AlertController,
+              private iataDb: IatadbService) {}
 
   /**
    * Event-Handler-Methode für Button "Flughafen suchen".
    */
   public onFlughafenSuchen() {
 
+    const iataCodeTrimmed = this.iataCode.trim();
+    if (iataCodeTrimmed.length === 0) {
+
+      this.zeigeDialog("Fehler", "Kein Code ist eingegeben.");
+      return;
+    }
+
+    this.iataDb.sucheFlughafen(iataCodeTrimmed);
     this.zeigeDialog("Info", "Not implemented yet :-(");
   }
 
@@ -23,6 +39,14 @@ export class HomePage {
    */
   public onFluggesellschaftSuchen() {
 
+    const iataCodeTrimmed = this.iataCode.trim();
+    if (iataCodeTrimmed.length === 0) {
+
+      this.zeigeDialog("Fehler", "Kein Code ist eingegeben.");
+      return;
+    }
+
+    this.iataDb.sucheFluggesellschaft(iataCodeTrimmed);
     this.zeigeDialog("Info", "Not implemented yet :-(");
   }
 
