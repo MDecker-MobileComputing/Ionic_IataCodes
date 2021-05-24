@@ -89,7 +89,7 @@ export class HomePage {
    * @param titel Titel des Dialogs
    * @param nachricht Im Dialog anzuzeigender Text
    */
-   async zeigeDialog(titel: string, nachricht: string) {
+   private async zeigeDialog(titel: string, nachricht: string) {
 
     const meinAlert =
           await this.alertCtrl.create({
