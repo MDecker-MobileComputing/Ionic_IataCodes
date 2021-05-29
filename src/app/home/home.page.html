@@ -8,7 +8,8 @@
 
   <ion-item>
     <ion-label position="fixed" >IATA-Code:</ion-label>
-    <ion-input type="text"
+    <ion-input id="codeEingabe"
+               type="text"
                [(ngModel)]="iataCode"
                clearInput
                placeholder="Code für Flughafen oder Airline"></ion-input>
@@ -16,11 +17,13 @@
 
   &nbsp;
 
-  <ion-button expand="block"
+  <ion-button id="buttonFlughafensuche"
+              expand="block"
               (click)="onFlughafenSuchen()">Flughafen suchen</ion-button>
   &nbsp;
 
-  <ion-button expand="block"
+  <ion-button id="buttonAirlineSuche"
+              expand="block"
               (click)="onFluggesellschaftSuchen()">Fluggesellschaft suchen</ion-button>
 
 </ion-content>
