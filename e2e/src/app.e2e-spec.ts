@@ -1,4 +1,5 @@
 import { AppPage } from './app.po';
+import { browser, by, element } from 'protractor';
 
 describe('new App', () => {
   let page: AppPage;
@@ -9,9 +10,14 @@ describe('new App', () => {
 
   // Pfeilfunktion mit "async" versehen und "await" vor page.navigateTo()
   // wegen diesem Issue: https://github.com/ionic-team/starters/issues/1669#issuecomment-784452288
-  it('should be blank', async () => {
+  it('Auf leerer Seite ist alles da.', async () => {
 
-    await page.navigateTo();
-    //expect(page.getParagraphText()).toContain('Start with Ionic UI Components');
+    await browser.get("/");
+
+    element(by.buttonText("Flughafen suchen"));
+    element(by.buttonText("Fluggesellschaft suchen"));
+
+    const eingabeFeld = element(by.binding("iataCode"));
+    expect(eingabeFeld.getText()).toEqual("");
   });
 });
