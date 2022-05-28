@@ -1,0 +1,6 @@
+{
+	"appId": "de.mide.ionic.iatacodes",
+	"appName": "IATA-Codes",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
