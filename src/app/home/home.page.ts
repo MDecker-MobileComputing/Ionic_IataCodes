@@ -34,7 +34,7 @@ export class HomePage {
     }
     if (laengeEingabe !== 3) {
 
-      this.zeigeDialog("Ungültige Eingabe", 
+      this.zeigeDialog("Ungültige Eingabe",
                       `Eingegebener Code "${iataCodeTrimmed}" hat nicht genau drei Zeichen.`);
       return;
     }
@@ -42,7 +42,7 @@ export class HomePage {
     const ergebnis = this.iataDb.sucheFlughafen(iataCodeTrimmed);
     if (ergebnis.gefunden) {
 
-      this.zeigeDialog("Flughafen gefunden", 
+      this.zeigeDialog("Flughafen gefunden",
                        `Flughafen ${ergebnis.flughafen} in ${ergebnis.land}.`);
       this.iataCode = "";
 
@@ -67,15 +67,15 @@ export class HomePage {
     }
     if (laengeEingabe !== 2) {
 
-      this.zeigeDialog("Ungültige Eingabe", 
+      this.zeigeDialog("Ungültige Eingabe",
                        `Eingegebener Code "${iataCodeTrimmed}" hat nicht genau zwei Zeichen.`);
       return;
-    }    
+    }
 
     const ergebnis = this.iataDb.sucheFluggesellschaft(iataCodeTrimmed);
     if (ergebnis.gefunden) {
 
-      this.zeigeDialog("Fluggesellschaft gefunden", 
+      this.zeigeDialog("Fluggesellschaft gefunden",
                        `Fluggesellschaft ${ergebnis.fluggesellschaft} (${ergebnis.land}).`);
       this.iataCode = "";
 
