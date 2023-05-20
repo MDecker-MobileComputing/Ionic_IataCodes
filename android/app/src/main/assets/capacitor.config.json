@@ -1,6 +1,8 @@
 {
-	"appId": "de.mide.ionic.iatacodes",
-	"appName": "IATA-Codes",
+	"appId": "io.ionic.starter",
+	"appName": "IataCodes",
 	"webDir": "www",
-	"bundledWebRuntime": false
+	"server": {
+		"androidScheme": "https"
+	}
 }

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">IATA-Codes</string>
-    <string name="title_activity_main">IATA-Codes</string>
-    <string name="package_name">de.mide.ionic.iatacodes</string>
-    <string name="custom_url_scheme">de.mide.ionic.iatacodes</string>
+    <string name="app_name">IataCodes</string>
+    <string name="title_activity_main">IataCodes</string>
+    <string name="package_name">io.ionic.starter</string>
+    <string name="custom_url_scheme">io.ionic.starter</string>
 </resources>

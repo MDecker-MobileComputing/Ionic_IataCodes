@@ -1,4 +1,4 @@
-package de.mide.ionic.iatacodes;
+package io.ionic.starter;
 
 import com.getcapacitor.BridgeActivity;
 
