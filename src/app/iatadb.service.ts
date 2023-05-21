@@ -38,6 +38,7 @@ export class IatadbService {
       case "LHR": return new Flughafenergebnis(true, "London Heathrow"      , "GB"         );
       case "PEK": return new Flughafenergebnis(true, "Peking"               , "VR China"   );
       case "STR": return new Flughafenergebnis(true, "Stuttgart"            , "Deutschland");
+      case "MHG": return new Flughafenergebnis(true, "Mannheim"             , "Deutschland");
 
       default: return new Flughafenergebnis(false, "", "");
     }
