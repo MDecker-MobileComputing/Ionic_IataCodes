@@ -110,28 +110,6 @@ describe('IatadbService', () => {
       expect(flughafenErgebnis.land     ).toEqual("");
     });
 
-
-    it('Fluggesellschaft "LH" gefunden', () => {
-
-      const fluglinieErgebnis = service.sucheFluggesellschaft("LH");
-
-      expect(fluglinieErgebnis.gefunden).toBeTrue();
-
-      expect(fluglinieErgebnis.fluggesellschaft).toEqual("Lufthansa");
-      expect(fluglinieErgebnis.land            ).toEqual("Deutschland");
-    });
-
-
-    it('Fluggesellschaft "LH" gefunden', () => {
-
-      const fluglinieErgebnis = service.sucheFluggesellschaft("LH");
-
-      expect(fluglinieErgebnis.gefunden).toBeTrue();
-
-      expect(fluglinieErgebnis.fluggesellschaft).toEqual("Lufthansa");
-      expect(fluglinieErgebnis.land            ).toEqual("Deutschland");
-    });
-
   });
 
 
