@@ -41,7 +41,7 @@ Enter the following command to run the tests with the [Karma testrunner](http://
 npm test
 ```
 
-The unit tests are defined in the files with suffix `.spec.ts` under folder [src/app/](src/app/).
+The unit tests are defined in the files with suffix `.spec.ts` under folder [src/app/](src/app/) .
 
 <br>
 
