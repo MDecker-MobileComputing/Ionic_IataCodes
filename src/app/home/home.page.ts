@@ -16,8 +16,9 @@ export class HomePage {
   /**
    * Konstruktor für Dependency Injection.
    */
-  constructor(private alertCtrl: AlertController,
-              private iataDb: IatadbService) {}
+  constructor( private alertCtrl: AlertController,
+               private iataDb: IatadbService ) {}
+
 
   /**
    * Event-Handler-Methode für Button "Flughafen suchen".
@@ -27,30 +28,31 @@ export class HomePage {
     const iataCodeTrimmed = this.iataCode.trim();
     const laengeEingabe   = iataCodeTrimmed.length;
 
-    if (laengeEingabe === 0) {
+    if ( laengeEingabe === 0 ) {
 
-      this.zeigeDialog("Ungültige Eingabe", "Kein Code eingegeben.");
+      this.zeigeDialog( "Ungültige Eingabe", "Kein Code eingegeben." );
       return;
     }
-    if (laengeEingabe !== 3) {
+    if ( laengeEingabe !== 3 ) {
 
-      this.zeigeDialog("Ungültige Eingabe",
-                      `Eingegebener Code "${iataCodeTrimmed}" hat nicht genau drei Zeichen.`);
+      this.zeigeDialog( "Ungültige Eingabe",
+                        `Eingegebener Code "${iataCodeTrimmed}" hat nicht genau drei Zeichen.` );
       return;
     }
 
     const ergebnis = this.iataDb.sucheFlughafen(iataCodeTrimmed);
-    if (ergebnis.gefunden) {
+    if ( ergebnis.gefunden ) {
 
-      this.zeigeDialog("Flughafen gefunden",
-                       `Flughafen ${ergebnis.flughafen} in ${ergebnis.land}.`);
+      this.zeigeDialog( "Flughafen gefunden",
+                        `Flughafen ${ergebnis.flughafen} in ${ergebnis.land}.` );
       this.iataCode = "";
 
     } else {
 
-      this.zeigeDialog("Ergebnis", `Kein Flughafen mit Code "${iataCodeTrimmed}" gefunden.`);
+      this.zeigeDialog( "Ergebnis", `Kein Flughafen mit Code "${iataCodeTrimmed}" gefunden.` );
     }
   }
+
 
   /**
    * Event-Handler-Methode für Button "Fluggesellschaft suchen".
@@ -60,30 +62,31 @@ export class HomePage {
     const iataCodeTrimmed = this.iataCode.trim();
     const laengeEingabe   = iataCodeTrimmed.length
 
-    if (iataCodeTrimmed.length === 0) {
+    if ( iataCodeTrimmed.length === 0 ) {
 
-      this.zeigeDialog("Ungültige Eingabe", "Kein Code eingegeben.");
+      this.zeigeDialog( "Ungültige Eingabe", "Kein Code eingegeben." );
       return;
     }
-    if (laengeEingabe !== 2) {
+    if ( laengeEingabe !== 2 ) {
 
-      this.zeigeDialog("Ungültige Eingabe",
-                       `Eingegebener Code "${iataCodeTrimmed}" hat nicht genau zwei Zeichen.`);
+      this.zeigeDialog( "Ungültige Eingabe",
+                        `Eingegebener Code "${iataCodeTrimmed}" hat nicht genau zwei Zeichen.` );
       return;
     }
 
-    const ergebnis = this.iataDb.sucheFluggesellschaft(iataCodeTrimmed);
-    if (ergebnis.gefunden) {
+    const ergebnis = this.iataDb.sucheFluggesellschaft( iataCodeTrimmed );
+    if ( ergebnis.gefunden ) {
 
-      this.zeigeDialog("Fluggesellschaft gefunden",
-                       `Fluggesellschaft ${ergebnis.fluggesellschaft} (${ergebnis.land}).`);
+      this.zeigeDialog( "Fluggesellschaft gefunden",
+                        `Fluggesellschaft ${ergebnis.fluggesellschaft} (${ergebnis.land}).` );
       this.iataCode = "";
 
     } else {
 
-      this.zeigeDialog("Ergebnis", `Keine Fluggesellschaft mit Code "${iataCodeTrimmed}" gefunden.`);
+      this.zeigeDialog( "Ergebnis", `Keine Fluggesellschaft mit Code "${iataCodeTrimmed}" gefunden.` );
     }
   }
+
 
   /**
    * Hilfsmethode: Alert anzeigen, siehe auch https://ionicframework.com/docs/api/alert

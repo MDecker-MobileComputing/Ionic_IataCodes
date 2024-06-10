@@ -1,10 +1,12 @@
-import { Flughafenergebnis } from './flughafenergebnis';
+import { Fluggesellschaftergebnis } from './fluggesellschaftergebnis';
 
-describe('Flughafenergebnis', () => {
+describe('Fluggesellschaftergebnis', () => {
 
   it('should create an instance', () => {
-    expect(new Flughafenergebnis(false, "", "")).toBeTruthy();
+
+    expect(new Fluggesellschaftergebnis(false, "", "")).toBeTruthy();
   });
 });
+
 
 

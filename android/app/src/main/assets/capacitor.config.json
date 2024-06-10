@@ -1,8 +1,0 @@
-{
-	"appId": "io.ionic.starter",
-	"appName": "IataCodes",
-	"webDir": "www",
-	"server": {
-		"androidScheme": "https"
-	}
-}

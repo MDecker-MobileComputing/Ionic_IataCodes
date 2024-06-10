@@ -18,7 +18,7 @@ export class IatadbService {
 
   /**
    * Nach Flughafen anhand von dreistelligem Code suchen.
-   * <br>
+   * <br><br>
    *
    * Referenzen:
    * * https://de.wikipedia.org/wiki/IATA-Flughafencode
@@ -29,20 +29,21 @@ export class IatadbService {
    * @returns Ergebnisobjekt mit Attribut `gefunden=true` genau dann wenn ein Flughafen mit
    *          `code` gefunden wurde.
    */
-  public sucheFlughafen(code: string): Flughafenergebnis {
+  public sucheFlughafen( code: string ): Flughafenergebnis {
 
     switch ( code.trim().toUpperCase() ) {
 
-      case "FKB": return new Flughafenergebnis(true, "Karlsruhe/Baden-Baden", "Deutschland");
-      case "FRA": return new Flughafenergebnis(true, "Frankfurt a.M."       , "Deutschland");
-      case "LHR": return new Flughafenergebnis(true, "London Heathrow"      , "GB"         );
-      case "PEK": return new Flughafenergebnis(true, "Peking"               , "VR China"   );
-      case "STR": return new Flughafenergebnis(true, "Stuttgart"            , "Deutschland");
-      case "MHG": return new Flughafenergebnis(true, "Mannheim"             , "Deutschland");
+      case "FKB": return new Flughafenergebnis( true, "Karlsruhe/Baden-Baden", "Deutschland" );
+      case "FRA": return new Flughafenergebnis( true, "Frankfurt a.M."       , "Deutschland" );
+      case "LHR": return new Flughafenergebnis( true, "London Heathrow"      , "GB"          );
+      case "PEK": return new Flughafenergebnis( true, "Peking"               , "VR China"    );
+      case "STR": return new Flughafenergebnis( true, "Stuttgart"            , "Deutschland" );
+      case "MHG": return new Flughafenergebnis( true, "Mannheim"             , "Deutschland" );
 
-      default: return new Flughafenergebnis(false, "", "");
+      default: return new Flughafenergebnis( false, "", "" );
     }
   }
+
 
   /**
    * Nach Fluggesellschaft (Airline) anhand von zweistelligem Code suchen.
@@ -52,7 +53,7 @@ export class IatadbService {
    * @return  Ergebnisobjekt mit Attribut `gefunden=true` genau dann wenn eine Airline mit `code`
    *          gefunden wurde.
    */
-  public sucheFluggesellschaft(code: string): Fluggesellschaftergebnis {
+  public sucheFluggesellschaft( code: string ): Fluggesellschaftergebnis {
 
     switch ( code.trim().toUpperCase() ) {
 
@@ -61,7 +62,7 @@ export class IatadbService {
       case "LH": return new Fluggesellschaftergebnis( true, "Lufthansa"        , "Deutschland" );
       case "LO": return new Fluggesellschaftergebnis( true, "LOT"              , "Polen"       );
 
-      default: return new Fluggesellschaftergebnis(false, "", "");
+      default: return new Fluggesellschaftergebnis( false, "", "" );
     }
   }
 
